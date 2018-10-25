@@ -7,6 +7,8 @@ import cucumber.api.java.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -18,8 +20,11 @@ public class TestingSeleniumSteps {
 	public void setUp() throws Exception {
 		//System.setProperty ( "webdriver.firefox.bin" , "D:\\Program Files\\Mozilla Firefox\\firefox.exe" );
 		System.setProperty ( "webdriver.chrome.driver" , "./driver/chromedriver.exe" );
+		
+		ChromeOptions options = new ChromeOptions(); 
+		options.setBinary("D:/Program Files/Google/Chrome/Application/chrome.exe");
 
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(options);
 		//driver = new FirefoxDriver();
 		// baseUrl = "https://www.baidu.com/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
